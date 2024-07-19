@@ -31,7 +31,15 @@ public class Library
     {
         foreach (var libro in ListaLibros)
         {
-            Console.WriteLine(libro.Titulo);
+            Console.WriteLine(@$"----------------------------------------------------------
+        LIBRO {libro.IdLibro}
+        autor:{libro.Autor}
+        ISBN:{libro.ISBN}
+        genero:{libro.Genero}
+        precio Base:${libro.Precio}
+        Descuento:{libro.descuentoFinal}%
+        PrecioFinal:${libro.PrecioFinal()}
+        ");
         }
     }
 
@@ -76,6 +84,31 @@ public class Library
         if (counter == ListaLibros.Count)
         {
             Console.WriteLine($"No existen libros escritos por {autor} en la Biblioteca");
+        }
+    }
+
+    public void BuscarPorRangodeAños()
+    {
+        Console.WriteLine("Ingrese el primer año del rango:");
+        var añoInicio = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Ingrese el fin del rango de años:");
+        var añoFin = Convert.ToInt16(Console.ReadLine());
+
+        int counter = 0;
+        foreach (var libro in ListaLibros)
+        {
+            if (libro.AñoPublicacion > añoInicio && libro.AñoPublicacion < añoFin)
+            {
+                Console.WriteLine(libro.Titulo);
+            }
+            else
+            {
+                counter++;
+            }
+        }
+        if (counter == ListaLibros.Count)
+        {
+            Console.WriteLine($"No existen libros escritos entre {añoInicio} y {añoFin} en la Biblioteca");
         }
     }
 }

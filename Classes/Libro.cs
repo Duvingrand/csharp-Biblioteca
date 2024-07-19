@@ -9,7 +9,7 @@ namespace Biblioteca.Classes;
 
 public class Libro : Publicacion
 {
-    private static int idLibroUpdater = 0;
+    private static int idLibroUpdater = 1;
     public int IdLibro { get; private set; }
     public string Autor { get; set; }
     public string ISBN { get; set; }
@@ -42,7 +42,7 @@ public class Libro : Publicacion
         ");
     }
 
-    double descuentoFinal=0;
+    public double descuentoFinal=0;
 
     public double DescuentoPorcentajeM()
     {
