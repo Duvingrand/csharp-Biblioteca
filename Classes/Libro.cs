@@ -14,7 +14,7 @@ public class Libro : Publicacion
     public string Autor { get; set; }
     public string ISBN { get; set; }
     public string Genero { get; set; }
-    public virtual double Precio { get; set; }
+    public double Precio { get; set; }
     public int DescuentoPorcentaje { get; set; }
 
 //constructor
@@ -29,7 +29,7 @@ public class Libro : Publicacion
         Precio = precio;
     }
 // metodo que devuelve la descripción detallada del proyecto
-    public void Description()
+    public void Descripcion()
     {
         Console.WriteLine(@$"----------------------------------------------------------
         LIBRO {IdLibro}

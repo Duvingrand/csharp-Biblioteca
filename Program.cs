@@ -53,7 +53,50 @@ public class Program
         biblioteca.AgregarLibro(libro19);
 
 
+while (true)
+        {
+            Console.WriteLine("Menú:");
+            Console.WriteLine("1. Mostrar todos los libros");
+            Console.WriteLine("2. Buscar por rango de años");
+            Console.WriteLine("3. Buscar por autor");
+            Console.WriteLine("4. Buscar por género");
+            Console.WriteLine("5. Salir");
+            Console.WriteLine();
+            Console.Write("Seleccione una opción (1-5): ");
 
-    biblioteca.BuscarPorRangodeAños();
+            // Leer la opción del usuario
+            string? opcion = Console.ReadLine();
+
+            switch (opcion)
+            {
+                case "1":
+                    Console.WriteLine("Mostrando todos los libros:");
+                    biblioteca.MostrarTodosLosLibros();
+                    break;
+                case "2":
+                    Console.WriteLine("Buscar por rango de años:");
+                    biblioteca.BuscarPorRangodeAños();
+                    break;
+                case "3":
+                    Console.WriteLine("Buscar por autor:");
+                    biblioteca.BuscarPorAutor();
+                    break;
+                case "4":
+                    Console.WriteLine("Buscar por género:");
+                    biblioteca.BuscarPorGenero();
+                    break;
+                case "5":
+                    Console.WriteLine("Saliendo del programa...");
+                    return; // Salir del programa
+                default:
+                    Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida (1-5).");
+                    break;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear(); // Limpiar la consola para el próximo ciclo del menú
+        }
     }
 }
