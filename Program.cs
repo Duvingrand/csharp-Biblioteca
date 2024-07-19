@@ -5,9 +5,53 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        var biblioteca = new Library();
+
+        void NuevoLibro()
+        {
+            {
+                Console.WriteLine("Ingrese los datos para crear un nuevo libro:");
+
+                // Pedir al usuario que ingrese los datos
+                Console.Write("Título: ");
+                string titulo = Console.ReadLine();
+
+                Console.Write("Autor: ");
+                string autor = Console.ReadLine();
+
+                Console.Write("ISBN: ");
+                string isbn = Console.ReadLine();
+
+                Console.Write("Año de Publicación: ");
+                int añoPublicacion;
+                while (!int.TryParse(Console.ReadLine(), out añoPublicacion))
+                {
+                    Console.WriteLine("Ingrese un año válido.");
+                    Console.Write("Año de Publicación: ");
+                }
+
+                Console.Write("Género: ");
+                string genero = Console.ReadLine();
+
+                Console.Write("Precio: ");
+                double precio;
+                while (!double.TryParse(Console.ReadLine(), out precio))
+                {
+                    Console.WriteLine("Ingrese un precio válido.");
+                    Console.Write("Precio: ");
+                }
+                
+
+                // Crear el nuevo libro utilizando el constructor
+                Libro nuevoLibro = new Libro(titulo, autor, isbn, añoPublicacion, genero, precio);
+                biblioteca.AgregarLibro(nuevoLibro);
+
+                nuevoLibro.Descripcion();
+            }
+
+        }
         Console.Clear();
         // Creacion de la instancia de la Biblioteca
-        var biblioteca = new Library();
 
         // Crear instancias de la clase Libro
         var libro1 = new Libro("El Hobbit", "J.R.R. Tolkien", "978-0547928227", 1937, "fantasia", 15);
@@ -53,19 +97,24 @@ public class Program
         biblioteca.AgregarLibro(libro19);
 
 
-while (true)
+        // Ciclo principal del menú
+        while (true)
         {
             Console.WriteLine("Menú:");
             Console.WriteLine("1. Mostrar todos los libros");
             Console.WriteLine("2. Buscar por rango de años");
             Console.WriteLine("3. Buscar por autor");
             Console.WriteLine("4. Buscar por género");
-            Console.WriteLine("5. Salir");
+            Console.WriteLine("5. Agregar libro");
+            Console.WriteLine("6. Eliminar libro");
+            Console.WriteLine("7. ¿Este libro es reciente?");
+            Console.WriteLine("8. Agregar descuento a un libro");
+            Console.WriteLine("9. Salir");
             Console.WriteLine();
-            Console.Write("Seleccione una opción (1-5): ");
+            Console.Write("Seleccione una opción (1-9): ");
 
             // Leer la opción del usuario
-            string? opcion = Console.ReadLine();
+            string opcion = Console.ReadLine();
 
             switch (opcion)
             {
@@ -86,10 +135,28 @@ while (true)
                     biblioteca.BuscarPorGenero();
                     break;
                 case "5":
+                    NuevoLibro();
+                    break;
+                case "6":
+                    Console.WriteLine("Eliminar libro:");
+                    // Lógica para eliminar un libro (no implementada)
+                    Console.WriteLine(".");
+                    break;
+                case "7":
+                    Console.WriteLine("¿Este libro es reciente?");
+                    // Lógica para verificar si un libro es reciente (no implementada)
+                    Console.WriteLine("Funcionalidad de verificar si un libro es reciente no implementada.");
+                    break;
+                case "8":
+                    Console.WriteLine("Agregar descuento a un libro:");
+                    // Lógica para agregar descuento a un libro (no implementada)
+                    Console.WriteLine("Funcionalidad de agregar descuento a un libro no implementada.");
+                    break;
+                case "9":
                     Console.WriteLine("Saliendo del programa...");
                     return; // Salir del programa
                 default:
-                    Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida (1-5).");
+                    Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida (1-9).");
                     break;
             }
 

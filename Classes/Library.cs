@@ -33,15 +33,11 @@ public class Library
         {
             Console.WriteLine(@$"----------------------------------------------------------
         LIBRO {libro.IdLibro}
-        autor:{libro.Autor}
-        ISBN:{libro.ISBN}
-        genero:{libro.Genero}
-        precio Base:${libro.Precio}
-        Descuento:{libro.descuentoFinal}%
-        PrecioFinal:${libro.PrecioFinal()}
+        ''{libro.Titulo}'' de {libro.Autor}
         ");
         }
     }
+    
 
     public void BuscarPorGenero()
     {
