@@ -37,7 +37,7 @@ public class Libro : Publicacion
         ISBN:{ISBN}
         genero:{Genero}
         precio Base:${Precio}
-        Descuento:{descuentoFinal}%
+        Descuento:{descuentoFinal*100}%
         PrecioFinal:${PrecioFinal()}
         ");
     }

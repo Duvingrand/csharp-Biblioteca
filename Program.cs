@@ -109,7 +109,8 @@ public class Program
             Console.WriteLine("6. Eliminar libro");
             Console.WriteLine("7. ¿Este libro es reciente?");
             Console.WriteLine("8. Agregar descuento a un libro");
-            Console.WriteLine("9. Salir");
+            Console.WriteLine("9. Mostrar datos de un libro detalladamente");
+            Console.WriteLine("10. Salir");
             Console.WriteLine();
             Console.Write("Seleccione una opción (1-9): ");
 
@@ -148,6 +149,9 @@ public class Program
                     biblioteca.AgregarDescuentoBuscar();
                     break;
                 case "9":
+                    biblioteca.MostrarDetalladamente();
+                    break;
+                case "10":
                     Console.WriteLine("Saliendo del programa...");
                     return; // Salir del programa
                 default:
