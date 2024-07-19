@@ -17,9 +17,10 @@ public class Libro : Publicacion
     public virtual double Precio { get; set; }
     public int DescuentoPorcentaje { get; set; }
 
+//constructor
     public Libro(string titulo, string autor, string isbn, int añoPublicacion, string genero, double precio) : base(titulo, añoPublicacion)
     {
-        IdLibro = idLibroUpdater++;
+        IdLibro = idLibroUpdater++; //id autoincrementable
         Titulo = titulo;
         Autor = autor;
         ISBN = isbn;
@@ -27,7 +28,7 @@ public class Libro : Publicacion
         Genero = genero;
         Precio = precio;
     }
-
+// metodo que devuelve la descripción detallada del proyecto
     public void Description()
     {
         Console.WriteLine(@$"----------------------------------------------------------
@@ -56,14 +57,14 @@ public class Libro : Publicacion
         return resultado;
     }
 
-    public bool EsReciente()
+    public void EsReciente()
     {
         if (AñoPublicacion>(2024-5))
         {
-            return true;
+            Console.WriteLine("Si es Reciente");
         } else
         {
-            return false;
+            Console.WriteLine("No es Reciente");
         }
     }
 
