@@ -46,8 +46,9 @@ public class Libro : Publicacion
 
     public double DescuentoPorcentajeM()
     {
-        Console.Write($"Ingrese el descuento que se le aplicará al libro {Titulo}: ");
+        Console.Write($"Ingrese el descuento que se le aplicará al libro ''{Titulo}'': ");
         var descuentoPorcentaje = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine($"se ha agregado un descuento del {descuentoPorcentaje}%");
         descuentoFinal = descuentoPorcentaje / 100;
         return descuentoFinal;
     }

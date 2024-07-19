@@ -40,7 +40,7 @@ public class Program
                     Console.WriteLine("Ingrese un precio válido.");
                     Console.Write("Precio: ");
                 }
-                
+
 
                 // Crear el nuevo libro utilizando el constructor
                 Libro nuevoLibro = new Libro(titulo, autor, isbn, añoPublicacion, genero, precio);
@@ -119,38 +119,33 @@ public class Program
             switch (opcion)
             {
                 case "1":
-                    Console.WriteLine("Mostrando todos los libros:");
+
                     biblioteca.MostrarTodosLosLibros();
                     break;
                 case "2":
-                    Console.WriteLine("Buscar por rango de años:");
+
                     biblioteca.BuscarPorRangodeAños();
                     break;
                 case "3":
-                    Console.WriteLine("Buscar por autor:");
+
                     biblioteca.BuscarPorAutor();
                     break;
                 case "4":
-                    Console.WriteLine("Buscar por género:");
+
                     biblioteca.BuscarPorGenero();
                     break;
                 case "5":
                     NuevoLibro();
                     break;
                 case "6":
-                    Console.WriteLine("Eliminar libro:");
-                    // Lógica para eliminar un libro (no implementada)
-                    Console.WriteLine(".");
+                    biblioteca.BusquedaEspecificaEliminar();
+
                     break;
                 case "7":
-                    Console.WriteLine("¿Este libro es reciente?");
-                    // Lógica para verificar si un libro es reciente (no implementada)
-                    Console.WriteLine("Funcionalidad de verificar si un libro es reciente no implementada.");
+                    biblioteca.MostrarSiEsReciente();
                     break;
                 case "8":
-                    Console.WriteLine("Agregar descuento a un libro:");
-                    // Lógica para agregar descuento a un libro (no implementada)
-                    Console.WriteLine("Funcionalidad de agregar descuento a un libro no implementada.");
+                    biblioteca.AgregarDescuentoBuscar();
                     break;
                 case "9":
                     Console.WriteLine("Saliendo del programa...");

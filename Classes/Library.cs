@@ -37,7 +37,7 @@ public class Library
         ");
         }
     }
-    
+
 
     public void BuscarPorGenero()
     {
@@ -107,4 +107,100 @@ public class Library
             Console.WriteLine($"No existen libros escritos entre {añoInicio} y {añoFin} en la Biblioteca");
         }
     }
+
+public void BusquedaEspecificaEliminar()
+{
+    Console.WriteLine("Ingrese el ID del libro que desea borrar");
+    var libroElegido = Convert.ToInt16(Console.ReadLine());
+
+    var librosEncontrados = BuscarLibrosPorId(libroElegido);
+
+    if (librosEncontrados.Count > 0)
+    {
+        foreach (var libro in librosEncontrados)
+        {
+            EliminarLibro(libro);
+            Console.WriteLine($"Se eliminó el libro {libro.Titulo}.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("No existe un libro con ese ID en el sistema.");
+    }
+}
+
+public void MostrarSiEsReciente()
+{
+    Console.WriteLine("Ingrese el ID que desea consultar");
+    var libroElegido = Convert.ToInt16(Console.ReadLine());
+
+    var librosEncontrados = BuscarLibrosPorId(libroElegido);
+
+    if (librosEncontrados.Count > 0)
+    {
+        foreach (var libro in librosEncontrados)
+        {
+            libro.EsReciente();
+        }
+    }
+    else
+    {
+        Console.WriteLine("No existe un libro con ese ID en el sistema.");
+    }
+}
+
+public void AgregarDescuentoBuscar()
+{
+    Console.WriteLine("Ingrese el ID que desea agregar un descuento");
+    var libroElegido = Convert.ToInt16(Console.ReadLine());
+
+    var librosEncontrados = BuscarLibrosPorId(libroElegido);
+
+    if (librosEncontrados.Count > 0)
+    {
+        foreach (var libro in librosEncontrados)
+        {
+            libro.DescuentoPorcentajeM();
+        }
+    }
+    else
+    {
+        Console.WriteLine("No existe un libro con ese ID en el sistema.");
+    }
+}
+
+public void MostrarDetalladamente()
+{
+    Console.WriteLine("Ingrese el ID que desea Consultar detalladamente");
+    var libroElegido = Convert.ToInt16(Console.ReadLine());
+
+    var librosEncontrados = BuscarLibrosPorId(libroElegido);
+
+    if (librosEncontrados.Count > 0)
+    {
+        foreach (var libro in librosEncontrados)
+        {
+            libro.Descripcion();
+        }
+    }
+    else
+    {
+        Console.WriteLine("No existe un libro con ese ID en el sistema.");
+    }
+}
+
+public List<Libro> BuscarLibrosPorId(int id)
+{
+    var librosEncontrados = new List<Libro>();
+
+    foreach (var libro in ListaLibros)
+    {
+        if (libro.IdLibro == id)
+        {
+            librosEncontrados.Add(libro);
+        }
+    }
+
+    return librosEncontrados;
+}
 }
