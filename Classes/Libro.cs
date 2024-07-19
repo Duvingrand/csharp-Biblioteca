@@ -33,6 +33,7 @@ public class Libro : Publicacion
     {
         Console.WriteLine(@$"----------------------------------------------------------
         LIBRO {IdLibro}
+        titulo: {Titulo}
         autor:{Autor}
         ISBN:{ISBN}
         genero:{Genero}
